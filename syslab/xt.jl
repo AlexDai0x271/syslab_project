@@ -1,6 +1,5 @@
 using TyPlot
-using TyBase
-function func_generator(a_n::Vector{Float64}, b_n::Vector{Float64}, T0::Float64, num_points::Int)
+function function_generator(a_n::Vector{Float64}, b_n::Vector{Float64}, T0::Float64, num_points::Int)
     # 生成傅里叶级数展开的信号
     # a_n: 余弦项系数
     # b_n: 正弦项系数
@@ -36,17 +35,12 @@ end
 
 # 测试函数
 a_n = [0, 4/π, 0, 4/(3π), 0, 4/(5π), 0, 4/(7π), 0, 4/(9π)]
-b_n = [4/π, 0, 4/(3π), 0, 4/(5π), 0, 4/(7π), 0, 4/(9π)]
-T0 = 2 * π
-num_points = 1000
+b_n = [0, 4/π, 0, 4/(3π), 0, 4/(5π), 0, 4/(7π), 0, 4/(9π)]
+T0 = 2 * π  # 周期
+num_points = 1000  # 时间点数
 
-# 调用函数发生器
-x_t, t = func_generator(a_n, b_n, T0, num_points)
+# 调用函数生成信号
+x_t, t = function_generator(a_n, b_n, T0, num_points)
 
 # 绘制生成的信号
-figure()
-plot(t, x_t)
-title("f(t)")
-ylabel("f(t)")
-xlabel("t")
-
+plot(t, x_t, title="傅里叶级数生成的信号 x(t)", xlabel="时间 t", ylabel="幅度", grid=true)

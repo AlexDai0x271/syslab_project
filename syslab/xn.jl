@@ -1,9 +1,7 @@
-using TyPlot
-using TyBase
-
+using Interpolations
 # 采样间隔参数
 l1 = 0.1
-l2 = 1.0
+l2 = 0.5
 
 # 傅里叶系数
 a_n = [0, 4/π, 0, 4/(3π), 0, 4/(5π), 0, 4/(7π), 0, 4/(9π)]
@@ -29,7 +27,9 @@ subplot(2, 1, 1)
 stem(n1, x_n1)
 title("f1(n)")
 xlabel("n")
+grid("on")
 subplot(2,1,2)
 stem(n2, x_n2)
 title("f2(n)")
 xlabel("n")
+grid("on")

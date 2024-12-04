@@ -1,4 +1,3 @@
-#using TyPlot
 
 function func_generator(a_n::Vector{Float64}, b_n::Vector{Float64}, T0::Float64, num_points::Int)
     # 生成傅里叶级数展开的信号
@@ -50,4 +49,4 @@ plot(t, x_t)
 title("f(t)")
 ylabel("f(t)")
 xlabel("t")
-
+grid("on")
